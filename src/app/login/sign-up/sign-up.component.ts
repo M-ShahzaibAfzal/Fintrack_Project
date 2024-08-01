@@ -36,6 +36,7 @@ export class SignUpComponent implements OnInit {
   onSubmit(): void {
     if (this.signUpForm.valid) {
       const { firstName, lastName, email, password } = this.signUpForm.value;
+      console.log(JSON.stringify(this.signUpForm.value, null, 2));
       console.log('Submitted First Name:', firstName);
       console.log('Submitted Last Name:', lastName);
       console.log('Submitted Email:', email);

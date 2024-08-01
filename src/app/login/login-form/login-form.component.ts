@@ -1,12 +1,14 @@
+// login-form.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 // Custom validator for email or username
 function usernameOrEmailValidator(control: any) {
   const value = control.value;
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation regex
-  const usernameRegex = /^[a-zA-Z0-9_]{3,}$/; // Example username validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const usernameRegex = /^[a-zA-Z0-9_]{3,}$/;
   if (!value) {
     return null;
   }
@@ -37,7 +39,11 @@ function passwordValidator(control: any) {
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, usernameOrEmailValidator]],
       password: ['', [Validators.required, passwordValidator]]
@@ -49,18 +55,23 @@ export class LoginFormComponent implements OnInit {
   onSubmit(): void {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
-      console.log('Submitted username:', username);
-      console.log('Submitted password:', password);
+      console.log('Submitting login form', { username, password });
+
       this.http.post('/api/login', this.loginForm.value).subscribe({
-        next: (response) => {
+        next: (response: any) => {
           console.log('Login successful', response);
-          // Handle successful login, e.g., navigate to a dashboard
+          // Save the token in local storage
+          localStorage.setItem('accessToken', response.token);
+          // Redirect to home page
+          this.router.navigate(['/home']);
         },
         error: (error) => {
           console.error('Login failed', error);
           // Handle login error
         }
       });
+    } else {
+      console.log('Form is invalid');
     }
   }
 }
