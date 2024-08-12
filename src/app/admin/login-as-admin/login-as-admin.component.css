@@ -1,0 +1,87 @@
+/* Full-page background */
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Centered login form container */
+  .admin-login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 20px;
+  }
+  
+  /* Title styling */
+  .admin-login-container h2 {
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #1877f2;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  /* Input fields styling */
+  .admin-login-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .admin-login-container .form-group .form-control {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+  
+  /* Submit button styling */
+  .admin-login-container .btn-primary {
+    background-color: #1877f2;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    color: #ffffff;
+  }
+  
+  .admin-login-container .btn-primary:hover {
+    background-color: #165fc4;
+  }
+  
+  /* Links styling */
+  .admin-login-container p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .admin-login-container p a {
+    color: #1877f2;
+    text-decoration: none;
+  }
+  
+  .admin-login-container p a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Additional styling for spacing and layout */
+  .admin-login-container .text-center {
+    text-align: center;
+  }
+  
+  .admin-login-container .mt-3 {
+    margin-top: 1rem !important;
+  }
+  

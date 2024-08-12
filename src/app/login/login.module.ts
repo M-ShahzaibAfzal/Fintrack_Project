@@ -6,12 +6,20 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http'; // Import HTTP_INTERCE
 
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { VerificationComponent } from './verification/verification.component';
+import { SeeUserComponent } from './see-user/see-user.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+
 
 
 @NgModule({
   declarations: [
     LoginFormComponent,
-    SignUpComponent
+    SignUpComponent,
+    VerificationComponent,
+    SeeUserComponent,
+    ForgetPasswordComponent,
+    
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,19 @@
+<!-- delete-user.component.html -->
+<div>
+    <h2>Delete User</h2>
+    <form [formGroup]="deleteForm" (ngSubmit)="onSubmit()">
+      
+      
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email" />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input id="password" type="password" formControlName="password" />
+      </div>
+      <button type="submit">Delete User</button>
+    </form>
+    <div *ngIf="message">{{ message }}</div>
+  </div>
+  

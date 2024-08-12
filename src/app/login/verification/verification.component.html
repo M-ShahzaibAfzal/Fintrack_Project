@@ -1,0 +1,17 @@
+<!-- src/app/login/verification/verification.component.html -->
+<div>
+    <h2>Verification</h2>
+    <form [formGroup]="verificationForm" (ngSubmit)="onVerify()">
+      <div>
+        <label for="number">Verification Number:</label>
+        <input id="number" formControlName="number" />
+        <div *ngIf="verificationForm.get('number')?.invalid && verificationForm.get('number')?.touched">
+          <small *ngIf="verificationForm.get('number')?.errors?.['required']">Verification number is required.</small>
+          <small *ngIf="verificationForm.get('number')?.errors?.['pattern']">Verification number must be exactly 5 digits.</small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="verificationForm.invalid">Verify</button>
+    </form>
+  </div>
+  
+  

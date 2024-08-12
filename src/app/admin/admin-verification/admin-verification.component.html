@@ -1,0 +1,12 @@
+<!-- admin-verification.component.html -->
+<div class="verification-container">
+    <h2>Admin Verification</h2>
+    <form [formGroup]="verificationForm" (ngSubmit)="onVerify()">
+      <div class="form-group">
+        <label for="verificationCode">Enter Verification Code</label>
+        <input type="text" id="verificationCode" formControlName="verificationCode" class="form-control">
+      </div>
+      <button type="submit" [disabled]="verificationForm.invalid" class="btn btn-primary btn-block">Verify</button>
+    </form>
+  </div>
+  

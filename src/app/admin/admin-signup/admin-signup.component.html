@@ -1,0 +1,53 @@
+<div class="admin-signup-container">
+    <h2>Admin Sign Up</h2>
+    <form [formGroup]="adminSignupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" formControlName="firstName" class="form-control">
+        <div *ngIf="adminSignupForm.get('firstName')?.invalid && adminSignupForm.get('firstName')?.touched" class="error-message">
+          First Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="secondName">Second Name</label>
+        <input type="text" id="secondName" formControlName="secondName" class="form-control">
+        <div *ngIf="adminSignupForm.get('secondName')?.invalid && adminSignupForm.get('secondName')?.touched" class="error-message">
+          Second Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" class="form-control">
+        <div *ngIf="adminSignupForm.get('username')?.invalid && adminSignupForm.get('username')?.touched" class="error-message">
+          Username is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control">
+        <div *ngIf="adminSignupForm.get('email')?.invalid && adminSignupForm.get('email')?.touched" class="error-message">
+          <div *ngIf="adminSignupForm.get('email')?.errors?.['required']">Email is required.</div>
+          <div *ngIf="adminSignupForm.get('email')?.errors?.['email']">Invalid email format.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" class="form-control">
+        <div *ngIf="adminSignupForm.get('password')?.invalid && adminSignupForm.get('password')?.touched" class="error-message">
+          <div *ngIf="adminSignupForm.get('password')?.errors?.['required']">Password is required.</div>
+          <div *ngIf="adminSignupForm.get('password')?.errors?.['invalidPassword']">Password must be at least 8 characters long, with at least one uppercase letter, one lowercase letter, and one number.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="number">Mobile Number</label>
+        <input type="text" id="number" formControlName="number" class="form-control">
+        <div *ngIf="adminSignupForm.get('number')?.invalid && adminSignupForm.get('number')?.touched" class="error-message">
+          <div *ngIf="adminSignupForm.get('number')?.errors?.['required']">Mobile Number is required.</div>
+          <div *ngIf="adminSignupForm.get('number')?.errors?.['pattern']">Mobile Number must be a valid number.</div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="adminSignupForm.invalid" class="btn btn-primary">Sign Up as Admin</button>
+    </form>
+    <p class="text-center mt-3">Already have an account? <a routerLink="/login-as-admin">Login as Admin</a></p>
+  </div>
+  

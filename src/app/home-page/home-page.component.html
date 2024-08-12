@@ -3,4 +3,14 @@
     <h1>Welcome to the Home Page!</h1>
     <p>You have successfully logged in.</p>
   </div>
-  
+  <div *ngIf="userName">
+    <h1>Welcome, {{ userName }}!</h1>
+  </div>
+<!-- Other homepage content -->
+
+<a routerLink="/update-user">Update User</a>
+<!-- Correct usage of <br> tag -->
+<br>
+<a routerLink="/delete-user">Delete User</a>
+
+

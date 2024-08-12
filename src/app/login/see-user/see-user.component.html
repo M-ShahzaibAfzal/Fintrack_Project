@@ -1,0 +1,13 @@
+<div>
+    <form [formGroup]="seeUserForm" (ngSubmit)="onSubmit()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName="username" required>
+      <button type="submit">See User</button>
+    </form>
+    <div *ngIf="user">
+      <p>Email: {{ user.email }}</p>
+      <p>First Name: {{ user.firstName }}</p>
+      <p>Last Name: {{ user.lastName }}</p>
+    </div>
+  </div>
+  
