@@ -1,0 +1,41 @@
+<p-card header="Add Income" class="p-mb-4">
+  <form [formGroup]="addIncomeForm" (ngSubmit)="onSubmit()">
+    <div class="p-fluid">
+      <div class="p-field">
+        <label for="cnic">CNIC:</label>
+        <input type="text" id="cnic" formControlName="cnic" pInputText />
+      </div>
+
+      <div class="p-field">
+        <label for="source">Source:</label>
+        <input type="text" id="source" formControlName="source" pInputText />
+      </div>
+
+      <div class="p-field">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" formControlName="amount" pInputText />
+      </div>
+
+      <div class="p-field">
+        <label for="date">Date:</label>
+        <input type="date" id="date" formControlName="date" pInputText />
+      </div>
+
+      <div class="p-field">
+        <label for="category">Category:</label>
+        <p-dropdown
+  id="category"
+  formControlName="category"
+  [options]="categories"
+  optionLabel="label"
+  placeholder="Select a category"
+></p-dropdown>
+
+      </div>
+
+      <p-button type="submit" label="Add Income" [disabled]="!addIncomeForm.valid"></p-button>
+    </div>
+  </form>
+
+  <div *ngIf="message" class="message">{{ message }}</div>
+</p-card>

@@ -8,6 +8,16 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
   }
+  .login-container {
+    display: flex;
+    flex-direction: column; /* Stack login form and image vertically */
+  }
+  
+  .login-image {
+    width: 100%; /* Adjust image width as needed */
+    height: auto;
+    object-fit: cover; /* Ensure image fills the carousel slide */
+  }
   
   .form-group {
     margin-bottom: 20px;

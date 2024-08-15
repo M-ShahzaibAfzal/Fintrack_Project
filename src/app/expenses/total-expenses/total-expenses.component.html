@@ -1,0 +1,42 @@
+<div class="total-expenses">
+    <h1>Total Expenses</h1>
+
+    <form [formGroup]="totalExpensesForm" (ngSubmit)="onSubmit()">
+      <label for="cnic">CNIC:</label>
+      <input id="cnic" formControlName="cnic" />
+      <button type="submit">Get Total Expenses</button>
+    </form>
+
+    <!-- Display message conditionally -->
+    <div *ngIf="message" class="message">
+      {{ message }}
+    </div>
+
+    <p-table [value]="records" [tableStyle]="{'min-width': '60rem'}" sortMode="multiple">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="date" style="width:25%">
+                    Date <p-sortIcon field="date"></p-sortIcon>
+                </th>
+                <th pSortableColumn="amount" style="width:25%">
+                    Amount <p-sortIcon field="amount"></p-sortIcon>
+                </th>
+                <th pSortableColumn="category" style="width:25%">
+                    Category <p-sortIcon field="category"></p-sortIcon>
+                </th>
+                <th pSortableColumn="itemPurchased" style="width:25%">
+                    Item Purchased <p-sortIcon field="itemPurchased"></p-sortIcon>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-record>
+            <tr>
+                <td>{{ record.date }}</td>
+                <td>{{ record.amount }}</td>
+                <td>{{ record.category }}</td>
+                <td>{{ record.itemPurchased }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+

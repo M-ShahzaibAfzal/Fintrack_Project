@@ -1,0 +1,37 @@
+<p-card header="User Total Income" class="p-mb-4">
+    <form [formGroup]="totalIncomeForm" (ngSubmit)="onSubmit()">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="cnic">CNIC:</label>
+          <input type="text" id="cnic" formControlName="cnic" pInputText />
+        </div>
+        <p-button type="submit" label="Get Total Income" [disabled]="!totalIncomeForm.valid"></p-button>
+      </div>
+    </form>
+  
+    <div *ngIf="totalIncome !== null">
+      <h3>Total Income: {{ totalIncome }}</h3>
+      <p *ngIf="message">{{ message }}</p>
+      <table *ngIf="records.length > 0">
+        <thead>
+          <tr>
+            <th>Task Name</th>
+            <th>Source</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of records">
+            <td>{{ record.TaskName }}</td>
+            <td>{{ record.Source }}</td>
+            <td>{{ record.Amount }}</td>
+            <td>{{ record.Date }}</td>
+            <td>{{ record.Category }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </p-card>
+  

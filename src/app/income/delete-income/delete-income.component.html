@@ -1,0 +1,35 @@
+<div class="delete-income-container">
+    <h2>Delete Income Record</h2>
+    
+    <form [formGroup]="deleteIncomeForm" (ngSubmit)="onDelete()">
+      <div class="form-group">
+        <label for="CNIC">CNIC:</label>
+        <input type="text" id="CNIC" formControlName="cnic" required />
+        <div *ngIf="deleteIncomeForm.get('cnic')?.invalid && deleteIncomeForm.get('cnic')?.touched" class="error">
+          Invalid CNIC. Please enter a 16-digit number.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="TaskName">Task Name:</label>
+        <input type="text" id="TaskName" formControlName="taskName" required />
+        <div *ngIf="deleteIncomeForm.get('taskName')?.invalid && deleteIncomeForm.get('taskName')?.touched" class="error">
+          Task Name is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="Date">Date:</label>
+        <input type="date" id="Date" formControlName="date" required />
+        <div *ngIf="deleteIncomeForm.get('date')?.invalid && deleteIncomeForm.get('date')?.touched" class="error">
+          Date is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="delete-button">Delete Income</button>
+    </form>
+  
+    <div *ngIf="message" class="message">{{ message }}</div>
+  </div>
+  
+  

@@ -1,0 +1,21 @@
+/* Add padding around the card */
+.p-card {
+    padding: 1rem;
+  }
+  
+  /* Style the form fields */
+  .p-field {
+    margin-bottom: 1rem;
+  }
+  
+  /* Style for the submit button */
+  .p-button {
+    margin-top: 1rem;
+  }
+  
+  /* Style for messages */
+  .message {
+    margin-top: 1rem;
+    color: #d9534f; /* Error message color */
+  }
+  

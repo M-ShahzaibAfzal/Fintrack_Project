@@ -1,9 +1,9 @@
 // app.module.ts
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
-import { AdminModule } from './admin/admin.module'; // Import AdminModule
+import { AdminModule } from './admin/admin.module'; 
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
@@ -14,8 +14,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
-import{ForgetPasswordComponent}from './login/forget-password/forget-password.component'
+import{ForgetPasswordComponent}from './login/forget-password/forget-password.component';
+import { MegaMenuModule } from 'primeng/megamenu'; // Import MegaMenuModule
+import { AvatarModule } from 'primeng/avatar';
+import { CalendarModule } from 'primeng/calendar';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { TableModule } from 'primeng/table'; 
 
+
+import { MessagesModule } from 'primeng/messages';
+ // Ensure this is importe
+
+import {IncomeModule}from './income/income.module';
+
+
+import {ExpensesModule}from './expenses/expenses.module';
 
 @NgModule({
   declarations: [
@@ -36,8 +49,20 @@ import{ForgetPasswordComponent}from './login/forget-password/forget-password.com
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MegaMenuModule,
+    IncomeModule,
+    ExpensesModule,
+    AvatarModule,
+    CalendarModule,
+    InputNumberModule,
+    MessagesModule,
+    TableModule,
+    
+   
+
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] ,
   providers: [],
   bootstrap: [AppComponent]
 })

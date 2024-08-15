@@ -20,13 +20,19 @@ const routes: Routes = [
   { path: 'update-user', component: UpdateUserComponent },
   { path: 'delete-user', component: DeleteUserComponent },
   { path: 'forgot-password', component: ForgetPasswordComponent },
-  // Add the UpdateUserComponent route
-
+  { 
+    path: 'income', 
+    loadChildren: () => import('./income/income.module').then(m => m.IncomeModule) 
+  },
   { 
     path: 'admin', 
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) 
-  }  // Lazy loading the A
+    
+  },
+
+  { path: 'expenses', loadChildren: () => import('./expenses/expenses.module').then(m => m.ExpensesModule) },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -33,7 +33,7 @@ export class LoginFormComponent implements OnInit {
       const { email, password } = this.loginForm.value;
       console.log('Submitting login form', { email, password });
 
-      this.http.post('http://localhost:8000/api/auth/SignIn', {
+      this.http.post('http://localhost:10000/api/finance/SignIn', {
         Email: email,
         Password: password
       }).subscribe({

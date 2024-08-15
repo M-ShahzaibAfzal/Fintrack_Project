@@ -1,4 +1,3 @@
-// home-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,6 +9,29 @@ import { ActivatedRoute } from '@angular/router';
 export class HomePageComponent implements OnInit {
   userName: string | null = null;
 
+  items: any[] = [
+    {
+      label: 'Income',
+      icon: 'pi pi-plus',
+      routerLink: ['/income']
+    },
+    {
+      label: 'Expenses',
+      icon: 'pi pi-dollar',
+      routerLink: ['/expenses']  
+    },
+    {
+      label: 'Update User',
+      icon: 'pi pi-user-edit',
+      routerLink: ['/update-user']
+    },
+    {
+      label: 'Delete User',
+      icon: 'pi pi-trash',
+      routerLink: ['/delete-user']
+    },
+  ];
+  
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -19,3 +41,4 @@ export class HomePageComponent implements OnInit {
     });
   }
 }
+

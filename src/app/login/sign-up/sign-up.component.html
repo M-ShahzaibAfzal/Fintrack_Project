@@ -16,8 +16,11 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" id="username" formControlName="username">
+      <label for="cnic">CNIC</label>
+      <input type="text" id="cnic" formControlName="cnic">
+      <div *ngIf="signUpForm.get('cnic')?.invalid && signUpForm.get('cnic')?.touched" class="error">
+        CNIC must be a 16-digit number without dashes.
+      </div>
     </div>
     <div class="form-group">
       <label for="email">Email</label>

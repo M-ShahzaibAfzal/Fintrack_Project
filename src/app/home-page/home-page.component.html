@@ -1,16 +1,36 @@
-<!-- home-page.component.html -->
 <div class="home-page">
     <h1>Welcome to the Home Page!</h1>
     <p>You have successfully logged in.</p>
-  </div>
-  <div *ngIf="userName">
+</div>
+<div *ngIf="userName">
     <h1>Welcome, {{ userName }}!</h1>
-  </div>
-<!-- Other homepage content -->
+</div>
 
-<a routerLink="/update-user">Update User</a>
-<!-- Correct usage of <br> tag -->
-<br>
-<a routerLink="/delete-user">Delete User</a>
+<p-megaMenu [model]="items" [style]="{ 'border-radius': '3rem', display: 'flex' }" styleClass="p-3 surface-0">
+    <ng-template pTemplate="start">
+        <svg width="33" height="35" viewBox="0 0 33 35" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-2rem">
+            <path d="..." fill="var(--primary-color)" />
+            <!-- SVG paths omitted for brevity -->
+        </svg>
+    </ng-template>
 
+    <!-- Insert your ng-container here to handle menu items -->
+    <ng-template pTemplate="item" let-item>
+        <ng-container *ngIf="item.routerLink; else elseBlock">
+            <a [routerLink]="item.routerLink" class="p-menuitem-link">
+                <span [class]="item.icon"></span>
+                <span class="ml-2">{{ item.label }}</span>
+            </a>
+        </ng-container>
+        <ng-template #elseBlock>
+            <a [href]="item.url" class="p-menuitem-link">
+                <span [class]="item.icon"></span>
+                <span class="ml-2">{{ item.label }}</span>
+            </a>
+        </ng-template>
+    </ng-template>
 
+    <ng-template pTemplate="end">
+        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle"></p-avatar>
+    </ng-template>
+</p-megaMenu>

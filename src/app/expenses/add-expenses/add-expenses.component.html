@@ -1,0 +1,38 @@
+<p-card header="Add Expense" class="p-mb-4">
+    <form [formGroup]="addExpenseForm" (ngSubmit)="onSubmit()">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="cnic">CNIC:</label>
+          <p-inputText id="cnic" formControlName="cnic"></p-inputText>
+        </div>
+  
+        <div class="p-field">
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" formControlName="amount" pInputText />
+        </div>
+  
+        <div class="p-field">
+          <label for="date">Date:</label>
+          <p-calendar id="date" formControlName="date" [showTime]="false"></p-calendar>
+        </div>
+  
+        <div class="p-field">
+          <label for="category">Category:</label>
+          <p-dropdown
+            id="category"
+            formControlName="category"
+            [options]="categories"
+            optionLabel="label"
+            placeholder="Select a category"
+          ></p-dropdown>
+        </div>
+  
+        <p-button type="submit" label="Add Expense" [disabled]="addExpenseForm.invalid"></p-button>
+      </div>
+    </form>
+  
+    <!-- Optional message display -->
+    <div *ngIf="message" class="message">{{ message }}</div>
+  </p-card>
+  
+

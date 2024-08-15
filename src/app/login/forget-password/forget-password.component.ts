@@ -26,7 +26,7 @@ export class ForgetPasswordComponent implements OnInit {
       const { email } = this.forgetPasswordForm.value;
 
       // API call to check if email exists
-      this.http.post('http://localhost:8000/api/auth/check-email', { email })
+      this.http.post('http://localhost:3000/api/finance/ForgetPassword', { email })
         .subscribe({
           next: (response: any) => {
             if (response.exists) {

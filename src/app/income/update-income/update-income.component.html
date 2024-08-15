@@ -1,0 +1,61 @@
+<div class="update-income-container">
+    <h2>Update Income Record</h2>
+  
+    <!-- Display success or error message -->
+    <div *ngIf="message" class="message">
+      {{ message }}
+    </div>
+  
+    <form [formGroup]="updateIncomeForm" (ngSubmit)="onUpdate()">
+      <div class="form-group">
+        <label for="cnic">CNIC</label>
+        <input type="text" id="cnic" formControlName="cnic" placeholder="Enter 16-digit CNIC number" />
+        <div *ngIf="updateIncomeForm.get('cnic')?.invalid && updateIncomeForm.get('cnic')?.touched" class="error">
+          CNIC is required and should be 16 digits.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="taskName">Task Name</label>
+        <input type="text" id="taskName" formControlName="taskName" placeholder="Enter Task Name" />
+        <div *ngIf="updateIncomeForm.get('taskName')?.invalid && updateIncomeForm.get('taskName')?.touched" class="error">
+          Task Name is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="source">Source</label>
+        <input type="text" id="source" formControlName="source" placeholder="Enter Source" />
+        <div *ngIf="updateIncomeForm.get('source')?.invalid && updateIncomeForm.get('source')?.touched" class="error">
+          Source is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="text" id="amount" formControlName="amount" placeholder="Enter Amount" />
+        <div *ngIf="updateIncomeForm.get('amount')?.invalid && updateIncomeForm.get('amount')?.touched" class="error">
+          Amount is required and should be a number.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" id="date" formControlName="date" />
+        <div *ngIf="updateIncomeForm.get('date')?.invalid && updateIncomeForm.get('date')?.touched" class="error">
+          Date is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" id="category" formControlName="category" placeholder="Enter Category" />
+        <div *ngIf="updateIncomeForm.get('category')?.invalid && updateIncomeForm.get('category')?.touched" class="error">
+          Category is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="update-button" [disabled]="updateIncomeForm.invalid">Update Income</button>
+    </form>
+  </div>
+  
