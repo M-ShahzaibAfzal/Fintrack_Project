@@ -82,7 +82,7 @@ export class VerificationComponent implements OnInit {
       const username = this.storedUsername;
 
       // Make API call to verify the number
-      this.http.post('http://localhost:8000/api/auth/verify/shahzaibafzal', {
+      this.http.post('http://localhost:10000/api/finance/verify/shahzaibafzal', {
         Username: username,
         enteredCode: number,
       }).subscribe({

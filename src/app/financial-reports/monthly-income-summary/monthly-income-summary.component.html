@@ -1,0 +1,50 @@
+<div class="monthly-income-summary-container">
+    <h2>Monthly Income Summary</h2>
+    
+    <form [formGroup]="incomeSummaryForm" (ngSubmit)="getMonthlyIncomeSummary()">
+      <div class="form-group">
+        <label for="cnic">CNIC:</label>
+        <input type="text" id="cnic" formControlName="cnic" required>
+        <div *ngIf="incomeSummaryForm.get('cnic')?.invalid && incomeSummaryForm.get('cnic')?.touched" class="error">
+          Please enter a valid 13-digit CNIC.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="month">Month (YYYY-MM):</label>
+        <input type="text" id="month" formControlName="month" required>
+        <div *ngIf="incomeSummaryForm.get('month')?.touched" class="error">
+          Please enter the month in the format YYYY-MM.
+        </div>
+      </div>
+      
+      <button type="submit" [disabled]="incomeSummaryForm.invalid">Get Summary</button>
+    </form>
+  
+    <div *ngIf="incomeRecords && incomeRecords.length > 0">
+      <h3>Income Records</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Source</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of incomeRecords">
+            <td>{{ record.Date }}</td>
+            <td>{{ record.Amount }}</td>
+            <td>{{ record.Source }}</td>
+            <td>{{ record.Category }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="message" class="error">
+      <p>{{ message }}</p>
+    </div>
+  </div>
+  
+  

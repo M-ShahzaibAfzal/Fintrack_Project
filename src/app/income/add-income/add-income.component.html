@@ -7,6 +7,12 @@
       </div>
 
       <div class="p-field">
+        <label for="taskname">TaskName:</label>
+        <input type="text" id="taskname" formControlName="taskname" pInputText />
+      
+
+      </div>
+      <div class="p-field">
         <label for="source">Source:</label>
         <input type="text" id="source" formControlName="source" pInputText />
       </div>
@@ -23,13 +29,8 @@
 
       <div class="p-field">
         <label for="category">Category:</label>
-        <p-dropdown
-  id="category"
-  formControlName="category"
-  [options]="categories"
-  optionLabel="label"
-  placeholder="Select a category"
-></p-dropdown>
+        <input type="text" id="category" formControlName="category" pInputText />
+      
 
       </div>
 

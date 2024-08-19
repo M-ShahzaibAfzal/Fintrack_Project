@@ -1,0 +1,36 @@
+<div class="saving-goal-container">
+    <h2>Set Saving Goals</h2>
+  
+    <form [formGroup]="savingGoalForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="CNIC">CNIC:</label>
+        <input id="CNIC" formControlName="CNIC" placeholder="Enter your CNIC" />
+        <div *ngIf="savingGoalForm.get('CNIC')?.invalid && savingGoalForm.get('CNIC')?.touched" class="error">
+          CNIC is required and must be 13 digits.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="TargetAmount">Target Amount:</label>
+        <input id="TargetAmount" type="number" formControlName="TargetAmount" placeholder="Enter target amount" />
+        <div *ngIf="savingGoalForm.get('TargetAmount')?.invalid && savingGoalForm.get('TargetAmount')?.touched" class="error">
+          Target Amount is required and must be greater than 0.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="TargetDate">Target Date:</label>
+        <input id="TargetDate" type="date" formControlName="TargetDate" />
+        <div *ngIf="savingGoalForm.get('TargetDate')?.invalid && savingGoalForm.get('TargetDate')?.touched" class="error">
+          Target Date is required.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="savingGoalForm.invalid">Set Goal</button>
+    </form>
+  
+    <div *ngIf="message" class="message">
+      {{ message }}
+    </div>
+  </div>
+  

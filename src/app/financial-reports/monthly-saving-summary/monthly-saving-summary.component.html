@@ -1,0 +1,39 @@
+<div class="saving-summary-container">
+    <h2>Monthly Saving Summary</h2>
+    
+    <form [formGroup]="savingSummaryForm" (ngSubmit)="getMonthlySavingSummary()">
+      <div>
+        <label for="cnic">CNIC:</label>
+        <input id="cnic" formControlName="cnic" placeholder="Enter your CNIC" />
+      </div>
+  
+      <div>
+        <label for="month">Month:</label>
+        <input id="month" formControlName="month" placeholder="YYYY-MM" />
+      </div>
+  
+      <button type="submit">Get Summary</button>
+    </form>
+  
+    <div *ngIf="message" class="message">
+      {{ message }}
+    </div>
+  
+    <table *ngIf="savingRecords.length > 0">
+      <thead>
+        <tr>
+          <th>Amount</th>
+          <th>Date</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of savingRecords">
+          <td>{{ record.Amount }}</td>
+          <td>{{ record.AmtDate }}</td>
+          <td>{{ record.Description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

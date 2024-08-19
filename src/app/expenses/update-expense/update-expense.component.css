@@ -1,0 +1,76 @@
+/* Container for the update expense form */
+.update-expense-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading style */
+  .update-expense-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* General form group style */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Label style */
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  /* Input field style */
+  .form-group input[type="text"],
+  .form-group input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Error message style */
+  .error {
+    margin-top: 5px;
+    color: #d9534f;
+    font-size: 0.875em;
+  }
+  
+  /* Submit button style */
+  .update-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+  }
+  
+  /* Hover effect for the submit button */
+  .update-button:hover {
+    background-color: #218838;
+  }
+  
+  /* Message display style */
+  .message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+    border-radius: 5px;
+    text-align: center;
+  }
+  

@@ -42,7 +42,7 @@ export class SignUpComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       cnic: ['', [Validators.required, cnicValidator]],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required, passwordValidator]],
       mobileNumber: ['']
     });
@@ -62,7 +62,7 @@ export class SignUpComponent implements OnInit {
       console.log('Submitted Mobile Number:', mobileNumber);
 
       // Make API call to backend
-      this.http.post('http://localhost:8000/api/auth/register', {
+      this.http.post('http://localhost:10000/api/finance/register', {
         FirstName: firstName,
         SecondName: lastName,
         CNIC: cnic,

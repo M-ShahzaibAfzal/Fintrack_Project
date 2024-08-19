@@ -1,30 +1,33 @@
 <div class="delete-expense-container">
-    <h1>Delete Expense Record</h1>
-  
-    <form [formGroup]="deleteExpenseForm" (ngSubmit)="onDelete()">
-      <div class="form-group">
-        <label for="cnic">CNIC:</label>
-        <input id="cnic" formControlName="cnic" />
-        <div *ngIf="deleteExpenseForm.controls.cnic.errors?.invalidCnic" class="error">
-          CNIC must be exactly 16 digits long.
-        </div>
+  <h2>Delete Expense Record</h2>
+
+  <form [formGroup]="deleteExpenseForm" (ngSubmit)="onDelete()">
+    <div class="form-group">
+      <label for="CNIC">CNIC:</label>
+      <input type="text" id="CNIC" formControlName="cnic" required />
+      <div *ngIf="deleteExpenseForm.get('cnic')?.invalid && deleteExpenseForm.get('cnic')?.touched" class="error">
+        Invalid CNIC. Please enter a 13-digit number.
       </div>
-  
-      <div class="form-group">
-        <label for="itemPurchased">Item Purchased:</label>
-        <input id="itemPurchased" formControlName="itemPurchased" />
+    </div>
+
+    <div class="form-group">
+      <label for="ItemPurchased">Item Purchased:</label>
+      <input type="text" id="ItemPurchased" formControlName="itemPurchased" required />
+      <div *ngIf="deleteExpenseForm.get('itemPurchased')?.invalid && deleteExpenseForm.get('itemPurchased')?.touched" class="error">
+        Item Purchased is required.
       </div>
-  
-      <div class="form-group">
-        <label for="date">Date:</label>
-        <input id="date" type="date" formControlName="date" />
+    </div>
+
+    <div class="form-group">
+      <label for="Date">Date:</label>
+      <input type="date" id="Date" formControlName="date" required />
+      <div *ngIf="deleteExpenseForm.get('date')?.invalid && deleteExpenseForm.get('date')?.touched" class="error">
+        Date is required.
       </div>
-  
-      <button type="submit">Delete Expense</button>
-  
-      <div *ngIf="message" class="message" [ngClass]="{'success': message.includes('successfully'), 'error': !message.includes('successfully')}">
-        {{ message }}
-      </div>
-    </form>
-  </div>
-  
+    </div>
+
+    <button type="submit" class="delete-button">Delete Expense</button>
+  </form>
+
+  <div *ngIf="message" class="message">{{ message }}</div>
+</div>

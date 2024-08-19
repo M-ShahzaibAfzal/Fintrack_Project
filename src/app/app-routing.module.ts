@@ -31,6 +31,20 @@ const routes: Routes = [
   },
 
   { path: 'expenses', loadChildren: () => import('./expenses/expenses.module').then(m => m.ExpensesModule) },
+
+  {
+    path: 'savings',
+    loadChildren: () => import('./savings/savings.module').then(m => m.SavingsModule)
+  },
+  {
+    path: 'financial-reports',
+    loadChildren: () => import('./financial-reports/financial-reports.module').then(m => m.FinancialReportsModule)
+  },
+
+  {
+    path: 'sorting',
+    loadChildren: () => import('./sorting/sorting.module').then(m => m.SortingModule)
+  },
 ];
 
 

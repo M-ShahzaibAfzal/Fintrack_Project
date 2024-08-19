@@ -15,7 +15,7 @@ export class UserTotalIncomeComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.totalIncomeForm = this.fb.group({
-      cnic: ['', [Validators.required, Validators.pattern(/^\d{16}$/)]]
+      cnic: ['', [Validators.required]]
     });
   }
 
@@ -24,7 +24,9 @@ export class UserTotalIncomeComponent implements OnInit {
   onSubmit(): void {
     if (this.totalIncomeForm.valid) {
       const { cnic } = this.totalIncomeForm.value;
-      this.http.post('http://localhost:3000/api/finance/userTotalIncome', { CNIC: cnic })
+      this.http.get('http://localhost:10000/api/finance/UserTotalIncome/3840398168721', {
+      
+      })
         .subscribe({
           next: (response: any) => {
             this.totalIncome = response.totalIncome;
@@ -38,4 +40,3 @@ export class UserTotalIncomeComponent implements OnInit {
     }
   }
 }
-

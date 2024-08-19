@@ -21,6 +21,11 @@ export class HomePageComponent implements OnInit {
       routerLink: ['/expenses']  
     },
     {
+      label: 'Savings',
+      icon: 'pi pi-wallet',
+      routerLink: ['/savings']
+    },
+    {
       label: 'Update User',
       icon: 'pi pi-user-edit',
       routerLink: ['/update-user']
@@ -30,6 +35,18 @@ export class HomePageComponent implements OnInit {
       icon: 'pi pi-trash',
       routerLink: ['/delete-user']
     },
+    {
+      label: 'Financial Reports',  // New Financial Reports menu option
+      icon: 'pi pi-chart-line',
+      routerLink: ['/financial-reports']
+    },
+
+    {
+      label: 'Sorting',  // New Financial Reports menu option
+      icon: 'pi pi-chart-line',
+      routerLink: ['/sorting']
+    },
+
   ];
   
   constructor(private route: ActivatedRoute) { }

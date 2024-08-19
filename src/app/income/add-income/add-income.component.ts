@@ -9,18 +9,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddIncomeComponent implements OnInit {
   addIncomeForm: FormGroup;
-  categories = [
-    { label: 'Salary', value: 'salary' },
-    { label: 'Freelance', value: 'freelance' },
-    { label: 'Investments', value: 'investments' },
-    { label: 'Other', value: 'other' }
-  ];
+  
   message: string = ''; // To display success or error messages
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     // Initializing the form with form controls and validators
     this.addIncomeForm = this.fb.group({
       cnic: ['', [Validators.required]],
+      taskname:['',[Validators.required]],
       source: ['', [Validators.required]],
       amount: ['', [Validators.required, Validators.min(0.01)]],
       date: ['', [Validators.required]],
@@ -32,11 +28,32 @@ export class AddIncomeComponent implements OnInit {
 
   onSubmit(): void {
     if (this.addIncomeForm.valid) {
-      const formData = this.addIncomeForm.value;
-      console.log('Submitted Income Data:', formData);
+      const {cnic,taskname,source,amount,date,category} =this.addIncomeForm.value;
+      console.log(this.addIncomeForm.value);
+      console.log('Submitted Income Data:');
+      console.log('Deleting Income Record:');
+      console.log('Submitted CNIC:', cnic);
+      console.log('Submitted Task Name:', taskname);
+      console.log('Submitted Date:', date);
+      console.log('Submitted Source:', source);
+      console.log('Submitted Category:', category);
+
+
+
 
       // Make API call to add income record
-      this.http.post('http://localhost:10000/api/finance/Addincome', formData)
+      this.http.post('http://localhost:10000/api/finance/AddIncome', {
+          CNIC:cnic,
+          TaskName:taskname,
+          Source:source,
+          Amount:amount,
+          Date:date,
+          Category:category,
+
+
+
+
+      })
         .subscribe({
           next: (response: any) => {
             console.log('Income added successfully!', response);

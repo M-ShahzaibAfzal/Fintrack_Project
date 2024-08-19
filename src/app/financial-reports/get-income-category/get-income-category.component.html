@@ -1,0 +1,49 @@
+<div class="income-category-container">
+    <h2>Income Category Breakdown</h2>
+  
+    <form [formGroup]="incomeCategoryForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="cnic">CNIC</label>
+        <input id="cnic" type="text" formControlName="cnic" placeholder="Enter 13-digit CNIC" />
+        <div *ngIf="incomeCategoryForm.get('cnic')?.invalid && incomeCategoryForm.get('cnic')?.touched" class="error">
+          Please enter a valid 13-digit CNIC.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="incomeCategoryForm.invalid">Get Income Categories</button>
+    </form>
+  
+    <div *ngIf="message" class="alert">{{ message }}</div>
+  
+    <div *ngIf="freelanceIncome.length > 0 || salaryIncome.length > 0 || investmentIncome.length > 0 || othersIncome.length > 0" class="income-summary">
+      <h3>Income Details</h3>
+      <div *ngIf="freelanceIncome.length > 0">
+        <h4>Freelance Income</h4>
+        <ul>
+          <li *ngFor="let income of freelanceIncome">{{ income.details }}</li>
+        </ul>
+      </div>
+  
+      <div *ngIf="salaryIncome.length > 0">
+        <h4>Salary Income</h4>
+        <ul>
+          <li *ngFor="let income of salaryIncome">{{ income.details }}</li>
+        </ul>
+      </div>
+  
+      <div *ngIf="investmentIncome.length > 0">
+        <h4>Investment Income</h4>
+        <ul>
+          <li *ngFor="let income of investmentIncome">{{ income.details }}</li>
+        </ul>
+      </div>
+  
+      <div *ngIf="othersIncome.length > 0">
+        <h4>Other Income</h4>
+        <ul>
+          <li *ngFor="let income of othersIncome">{{ income.details }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

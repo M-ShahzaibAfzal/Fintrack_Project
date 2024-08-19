@@ -1,0 +1,30 @@
+<div class="balance-overview-container">
+    <h2>Balance Overview</h2>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="form-group">
+        <label for="cnic">Enter CNIC:</label>
+        <input
+          type="text"
+          id="cnic"
+          name="cnic"
+          [(ngModel)]="CNIC"
+          placeholder="Enter CNIC"
+          required
+        />
+      </div>
+      <button type="submit" class="btn">Get Balance Overview</button>
+    </form>
+  
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+  
+    <div *ngIf="result" class="result">
+      <h3>{{ result.message }}</h3>
+      <p>{{ result.balanceMsg }}</p>
+      <p>{{ result.IncomeEarned }}</p>
+      <p>{{ result.IncomeSpent }}</p>
+      <p *ngIf="result.CurrentCredit">{{ result.CurrentCredit }}</p>
+    </div>
+  </div>
+  

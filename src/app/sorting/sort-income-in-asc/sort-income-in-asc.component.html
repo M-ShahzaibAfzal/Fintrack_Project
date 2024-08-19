@@ -1,0 +1,25 @@
+<div>
+    <form [formGroup]="sortIncomeInAscForm" (ngSubmit)="onSubmit()">
+      <label for="CNIC">Enter CNIC:</label>
+      <input id="CNIC" formControlName="CNIC" type="text" />
+      <button type="submit">Sort Income</button>
+    </form>
+  
+    <p *ngIf="message">{{ message }}</p>
+  
+    <table *ngIf="incomeRecords.length > 0">
+      <tr>
+        <th>Amount</th>
+        <th>Other Field</th>
+        <!-- Add other headers as needed -->
+      </tr>
+      <tr *ngFor="let record of incomeRecords">
+        <td>{{ record.amount }}</td>
+        <td>{{ record.otherField }}</td>
+        <!-- Add other fields as needed -->
+      </tr>
+    </table>
+  
+    <p *ngIf="incomeRecords.length === 0 && message === ''">No income records found.</p>
+  </div>
+  

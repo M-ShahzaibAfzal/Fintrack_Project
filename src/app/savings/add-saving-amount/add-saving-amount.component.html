@@ -1,0 +1,36 @@
+<div class="add-saving-amount-container">
+    <h2>Add Saving Amount</h2>
+  
+    <form [formGroup]="addSavingAmountForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="CNIC">CNIC:</label>
+        <input id="CNIC" formControlName="CNIC" placeholder="Enter your CNIC" />
+        <div *ngIf="addSavingAmountForm.get('CNIC')?.invalid && addSavingAmountForm.get('CNIC')?.touched" class="error">
+          CNIC is required and must be 13 digits.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="AmtAdded">Amount Added:</label>
+        <input id="AmtAdded" type="number" formControlName="AmtAdded" placeholder="Enter amount added" />
+        <div *ngIf="addSavingAmountForm.get('AmtAdded')?.invalid && addSavingAmountForm.get('AmtAdded')?.touched" class="error">
+          Amount Added is required and must be greater than 0.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="AmtDate">Amount Date:</label>
+        <input id="AmtDate" type="date" formControlName="AmtDate" />
+        <div *ngIf="addSavingAmountForm.get('AmtDate')?.invalid && addSavingAmountForm.get('AmtDate')?.touched" class="error">
+          Amount Date is required.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="addSavingAmountForm.invalid">Add Amount</button>
+    </form>
+  
+    <div *ngIf="message" class="message">
+      {{ message }}
+    </div>
+  </div>
+  

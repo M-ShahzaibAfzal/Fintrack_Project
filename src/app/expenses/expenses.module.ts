@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AddExpensesComponent } from './add-expenses/add-expenses.component';
 import { ExpensesHomepageComponent } from './expenses-homepage/expenses-homepage.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { ExpensesRoutingModule } from './expenses-routing.module';
 
 
 import { ButtonModule } from 'primeng/button';
@@ -11,12 +12,15 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber'
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { CalendarModule } from 'primeng/calendar';
 
 import { MessagesModule } from 'primeng/messages';
 import { TotalExpensesComponent } from './total-expenses/total-expenses.component';
 import { TableModule } from 'primeng/table';
 import { DeleteExpenseComponent } from './delete-expense/delete-expense.component';
+import { UpdateExpenseComponent } from './update-expense/update-expense.component';
 
 
 
@@ -25,7 +29,8 @@ import { DeleteExpenseComponent } from './delete-expense/delete-expense.componen
     AddExpensesComponent,
     ExpensesHomepageComponent,
     TotalExpensesComponent,
-    DeleteExpenseComponent
+    DeleteExpenseComponent,
+    UpdateExpenseComponent
   ],
   imports: [
     CommonModule,
@@ -36,6 +41,8 @@ import { DeleteExpenseComponent } from './delete-expense/delete-expense.componen
     DropdownModule,
     CardModule,
     InputNumberModule,
+    HttpClientModule,
+    ExpensesRoutingModule,
   
     CalendarModule,
     TableModule,

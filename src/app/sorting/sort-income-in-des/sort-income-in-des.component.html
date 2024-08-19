@@ -1,0 +1,38 @@
+<div class="sorting-container">
+    <h2>Sort Income in Descending Order</h2>
+  
+    <form [formGroup]="sortIncomeInDesForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="CNIC">CNIC:</label>
+        <input id="CNIC" formControlName="CNIC" placeholder="Enter your CNIC" />
+        <div *ngIf="sortIncomeInDesForm.get('CNIC')?.invalid && sortIncomeInDesForm.get('CNIC')?.touched" class="error">
+          CNIC is required and must be 13 digits.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="sortIncomeInDesForm.invalid">Sort Income</button>
+    </form>
+  
+    <div *ngIf="message" class="message">
+      {{ message }}
+    </div>
+  
+    <table *ngIf="incomeRecords.length > 0" class="income-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of incomeRecords">
+          <td>{{ record.date }}</td>
+          <td>{{ record.amount }}</td>
+          <td>{{ record.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  

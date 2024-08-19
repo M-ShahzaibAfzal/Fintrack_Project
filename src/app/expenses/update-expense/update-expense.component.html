@@ -1,0 +1,58 @@
+<div class="update-expense-container">
+    <h2>Update Expense Record</h2>
+  
+    <form [formGroup]="updateExpenseForm" (ngSubmit)="onUpdate()">
+      <div class="form-group">
+        <label for="CNIC">CNIC:</label>
+        <input type="text" id="CNIC" formControlName="cnic" required />
+        <div *ngIf="updateExpenseForm.get('cnic')?.invalid && updateExpenseForm.get('cnic')?.touched" class="error">
+          Invalid CNIC. Please enter a 16-digit number.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="ItemPurchased">Item Purchased:</label>
+        <input type="text" id="ItemPurchased" formControlName="itemPurchased" required />
+        <div *ngIf="updateExpenseForm.get('itemPurchased')?.invalid && updateExpenseForm.get('itemPurchased')?.touched" class="error">
+          Item Purchased is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="Date">Date:</label>
+        <input type="date" id="Date" formControlName="date" required />
+        <div *ngIf="updateExpenseForm.get('date')?.invalid && updateExpenseForm.get('date')?.touched" class="error">
+          Date is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="Amount">Amount:</label>
+        <input type="text" id="Amount" formControlName="amount" required />
+        <div *ngIf="updateExpenseForm.get('amount')?.invalid && updateExpenseForm.get('amount')?.touched" class="error">
+          Amount is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="Category">Category:</label>
+        <input type="text" id="Category" formControlName="category" required />
+        <div *ngIf="updateExpenseForm.get('category')?.invalid && updateExpenseForm.get('category')?.touched" class="error">
+          Category is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="NewItemPurchased">New Item Purchased:</label>
+        <input type="text" id="NewItemPurchased" formControlName="newItemPurchased" required />
+        <div *ngIf="updateExpenseForm.get('newItemPurchased')?.invalid && updateExpenseForm.get('newItemPurchased')?.touched" class="error">
+          New Item Purchased is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="update-button">Update Expense</button>
+    </form>
+  
+    <div *ngIf="message" class="message">{{ message }}</div>
+  </div>
+  

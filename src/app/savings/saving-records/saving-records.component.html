@@ -1,0 +1,38 @@
+<div class="saving-records-container">
+    <h2>Fetch Saving Records</h2>
+  
+    <form [formGroup]="savingRecordForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="CNIC">CNIC:</label>
+        <input id="CNIC" formControlName="CNIC" placeholder="Enter your CNIC" />
+        <div *ngIf="savingRecordForm.get('CNIC')?.invalid && savingRecordForm.get('CNIC')?.touched" class="error">
+          CNIC is required and must be 13 digits.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="savingRecordForm.invalid">Fetch Records</button>
+    </form>
+  
+    <div *ngIf="message" class="message">
+      {{ message }}
+    </div>
+  
+    <table *ngIf="records.length > 0" class="record-table">
+      <thead>
+        <tr>
+          <th>Amount Added</th>
+          <th>Amount Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of records">
+          <td>{{ record.AmtAdded }}</td>
+          <td>{{ record.AmtDate }}</td>
+          <td>{{ record.Time }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+

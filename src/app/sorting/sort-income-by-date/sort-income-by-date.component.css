@@ -1,0 +1,114 @@
+/* General Container Styling */
+.sorting-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Heading Styling */
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Group Styling */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Label Styling */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Input Styling */
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Button Styling */
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Disabled Button Styling */
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Error Message Styling */
+  .error {
+    color: red;
+    margin-top: 5px;
+  }
+  
+  /* General Message Styling */
+  .message {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Table Styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  thead {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    font-weight: bold;
+  }
+  
+  /* Button Container for Other Buttons */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  /* General Button Styling */
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Button Hover Styling */
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  

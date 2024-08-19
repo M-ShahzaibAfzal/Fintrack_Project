@@ -29,6 +29,10 @@ import {IncomeModule}from './income/income.module';
 
 
 import {ExpensesModule}from './expenses/expenses.module';
+import {SavingsModule}from './savings/savings.module';
+import {FinancialReportsModule} from './financial-reports/financial-reports.module';
+import {SortingModule} from './sorting/sorting.module';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +44,8 @@ import {ExpensesModule}from './expenses/expenses.module';
     SeeUserComponent,
     UpdateUserComponent,
     DeleteUserComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -53,10 +58,13 @@ import {ExpensesModule}from './expenses/expenses.module';
     MegaMenuModule,
     IncomeModule,
     ExpensesModule,
+    SavingsModule,
     AvatarModule,
     CalendarModule,
     InputNumberModule,
     MessagesModule,
+    FinancialReportsModule,
+    SortingModule,
     TableModule,
     
    
